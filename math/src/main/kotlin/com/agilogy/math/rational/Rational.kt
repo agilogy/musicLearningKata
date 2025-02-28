@@ -18,6 +18,8 @@ data class Rational private constructor(val numerator: Long, val denominator: Lo
     // Needed to disambiguate
     override fun div(other: Rational): Rational = this * other.inverse
 
+    override fun toString(): String = "$numerator/$denominator"
+
     companion object {
         val zero = Rational(0, 1)
         val one = Rational(1, 1)
