@@ -11,10 +11,11 @@ enum class NoteValue(val relativeValue: RelativeValue) {
     ThirtySecond(RelativeValue(1.r / 32)),
     SixtyFourth(RelativeValue(1.r / 64));
 
+    val dot: DottedNoteValue = DottedNoteValue(this, 1u)
+
     companion object {
         fun of(relativeValue: RelativeValue): NoteValue = NoteValue.entries.find { it.relativeValue == relativeValue }
             ?: throw IllegalArgumentException("No note value for $relativeValue")
     }
-
 
 }
