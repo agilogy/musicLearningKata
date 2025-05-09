@@ -17,9 +17,9 @@ interface Duration : Group<Duration> {
     companion object {
         val zero: Duration = ofSeconds(0.r)
         fun ofSeconds(value: Rational): Duration = SecondsDuration(value)
+        val Rational.seconds get() = ofSeconds(this)
+        val Rational.minutes get() = ofSeconds(this * 60)
     }
 }
 
-val Rational.seconds get() = Duration.ofSeconds(this)
-val Rational.minutes get() = Duration.ofSeconds(this * 60)
 

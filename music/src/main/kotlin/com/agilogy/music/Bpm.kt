@@ -1,7 +1,7 @@
 package com.agilogy.music
 
 import com.agilogy.math.duration.Duration
-import com.agilogy.math.duration.seconds
+import com.agilogy.math.duration.Duration.Companion.seconds
 import com.agilogy.math.rational.RationalSyntax.r
 
 @JvmInline

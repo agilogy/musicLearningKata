@@ -1,6 +1,6 @@
 package com.agilogy.music.test
 
-import com.agilogy.math.duration.seconds
+import com.agilogy.math.duration.Duration.Companion.seconds
 import com.agilogy.math.rational.RationalSyntax.r
 import com.agilogy.music.DottedNoteValue
 import com.agilogy.music.Note
