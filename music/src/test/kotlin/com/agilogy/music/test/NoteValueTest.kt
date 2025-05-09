@@ -110,8 +110,16 @@ class NoteValueTest : FunSpec({
         assertEquals((1.r / 2).beats, timeSignature.durationInBeats(NoteValue.Eighth))
     }
 
-    xtest("Property: Note duration in beats is...") {
-        TODO()
+    test("Property: Note duration in beats in time signature") {
+        (1u..8u).forEach { numerator ->
+            NoteValue.entries.forEach { denominator ->
+                val timeSignature = TimeSignature(numerator, denominator)
+                NoteValue.entries.forEach { noteValue ->
+                    val result = timeSignature.durationInBeats(noteValue)
+                    assertEquals((noteValue.relativeValue.value / denominator.relativeValue.value).beats, result)
+                }
+            }
+        }
     }
 
     test("Note duration in tempo") {
