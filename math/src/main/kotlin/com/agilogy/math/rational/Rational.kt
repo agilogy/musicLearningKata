@@ -2,7 +2,9 @@ package com.agilogy.math.rational
 
 import com.agilogy.math.cat.Field
 
-data class Rational private constructor(val numerator: Long, val denominator: Long) : Field<Rational> {
+@ConsistentCopyVisibility
+data class Rational private constructor(val numerator: Long, val denominator: Long) : Field<Rational>,
+    Comparable<Rational> {
     val doubleValue: Double get() = numerator.toDouble() / denominator.toDouble()
 
     override operator fun plus(other: Rational): Rational =
@@ -34,6 +36,13 @@ data class Rational private constructor(val numerator: Long, val denominator: Lo
                 if (resultDenominator < 0) Rational(-resultNumerator, -resultDenominator)
                 else Rational(resultNumerator, resultDenominator)
             }
+    }
+
+    override fun compareTo(other: Rational): Int {
+        val diff = this - other
+        if (diff == zero) return 0
+        else if (diff.numerator > 0) return 1
+        else return -1
     }
 }
 
