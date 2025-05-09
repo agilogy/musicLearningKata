@@ -2,6 +2,7 @@ package com.agilogy.music.test
 
 import com.agilogy.math.duration.Duration.Companion.seconds
 import com.agilogy.math.rational.RationalSyntax.r
+import com.agilogy.music.Bpm
 import com.agilogy.music.DottedNoteValue
 import com.agilogy.music.Note
 import com.agilogy.music.NoteName.A
@@ -91,13 +92,16 @@ class NoteValueTest : FunSpec({
     }
 
     test("Tempo beat duration") {
-        val tempo = 120u.bpm
-        assertEquals((1.r / 2).seconds, tempo.beatDuration)
+        val tempoValue = 120u
+        val tempo: Bpm = tempoValue.bpm
+        assertEquals((1.r / tempoValue * 60).seconds, tempo.beatDuration)
     }
 
-    xtest("Property: The tempo beat duration is 1 minute / bpm") {
-        TODO()
-        // TODO: Once implemented, remove previous unnecessary tests
+    test("Property: The tempo beat duration is 1 minute / bpm") {
+        (1u..120u).forEach { tempoValue ->
+            val tempo = tempoValue.bpm
+            assertEquals((1.r / tempoValue * 60).seconds, tempo.beatDuration)
+        }
     }
 
     test("Note duration in beats in time signature") {
