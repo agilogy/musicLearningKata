@@ -2,6 +2,7 @@ package com.agilogy.music.test
 
 import com.agilogy.math.duration.Duration.Companion.seconds
 import com.agilogy.math.rational.RationalSyntax.r
+import com.agilogy.music.Beats.Companion.beats
 import com.agilogy.music.Bpm
 import com.agilogy.music.DottedNoteValue
 import com.agilogy.music.Note
@@ -15,7 +16,6 @@ import com.agilogy.music.RelativeValue
 import com.agilogy.music.Bpm.Companion.bpm
 import com.agilogy.music.TimeSignature
 import com.agilogy.music.Tuplet
-import com.agilogy.music.beats
 import io.kotest.core.spec.style.FunSpec
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.assertThrows

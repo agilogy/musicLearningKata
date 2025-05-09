@@ -2,6 +2,7 @@ package com.agilogy.music
 
 import com.agilogy.math.duration.Duration
 import com.agilogy.math.rational.RationalSyntax.r
+import com.agilogy.music.Beats.Companion.beats
 
 data class TimeSignature(val beats: UInt, val beatValue: NoteValue) {
     val numerator: UInt = beats
@@ -17,8 +18,8 @@ data class TimeSignature(val beats: UInt, val beatValue: NoteValue) {
         operator fun invoke(numerator: UInt, denominator: UInt): TimeSignature =
             TimeSignature(
                 numerator,
-                NoteValue.of(RelativeValue(1.r / denominator)) ?:
-                throw IllegalArgumentException("Illegal TimeSignature denominator $denominator")
+                NoteValue.of(RelativeValue(1.r / denominator))
+                    ?: throw IllegalArgumentException("Illegal TimeSignature denominator $denominator")
             )
     }
 }
