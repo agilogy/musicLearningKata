@@ -10,7 +10,7 @@ data class TimeSignature(val beats: UInt, val beatValue: NoteValue) {
     fun durationInBeats(noteDuration: NoteDuration): Beats =
         (noteDuration.relativeValue.value / beatValue.relativeValue.value).beats
 
-    fun duration(noteDuration: NoteDuration, tempo: Tempo): Duration =
+    fun duration(noteDuration: NoteDuration, tempo: Bpm): Duration =
         tempo.beatDuration * durationInBeats(noteDuration).value
 
     companion object {

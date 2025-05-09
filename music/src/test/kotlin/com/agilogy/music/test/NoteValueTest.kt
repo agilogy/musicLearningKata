@@ -11,7 +11,7 @@ import com.agilogy.music.NoteName.D
 import com.agilogy.music.NoteValue
 import com.agilogy.music.NoteValue.Quarter
 import com.agilogy.music.RelativeValue
-import com.agilogy.music.Tempo.Companion.bpm
+import com.agilogy.music.Bpm.Companion.bpm
 import com.agilogy.music.TimeSignature
 import com.agilogy.music.Tuplet
 import com.agilogy.music.beats
