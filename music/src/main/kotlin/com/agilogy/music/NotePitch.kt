@@ -1,14 +1,11 @@
 package com.agilogy.music
 
-@JvmInline
-value class Alteration(val pitchClass: Int){
-    companion object{
-        val SHARP = Alteration(1)
-        val FLAT = Alteration(-1)
-        val NATURAL = Alteration(0)
-    }
-}
+class NotePitch(
+    val noteWithAlteration: NoteWithAlteration,
+    val octave: Int,
+) {
+    fun intervalTo(other: NotePitch): Interval {
 
-data class NotePitch(val noteName: NoteName, val alteration: Alteration){
-    val pitchClass: Int get() = noteName.pitchClass + alteration.pitchClass
+        TODO()
+    }
 }

@@ -13,8 +13,8 @@ data class Pitch(
         const val A4_FREQUENCY = 440.0
         const val SEMITONES_IN_OCTAVE = 12
         const val MIDDLE_OCTAVE = 4
-        operator fun invoke(notePitch: NotePitch, octave: Int): Pitch =
-            Pitch((notePitch.pitchClass - NoteName.A.pitchClass) + (octave - MIDDLE_OCTAVE) * SEMITONES_IN_OCTAVE)
+        operator fun invoke(noteWithAlteration: NoteWithAlteration, octave: Int): Pitch =
+            Pitch((noteWithAlteration.pitchClass - NoteName.A.pitchClass) + (octave - MIDDLE_OCTAVE) * SEMITONES_IN_OCTAVE)
     }
 
 }
